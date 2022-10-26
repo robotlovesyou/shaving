@@ -4,7 +4,7 @@ val kotest_version by properties
 
 plugins {
     kotlin("jvm") version "1.7.20"
-    application
+    `maven-publish`
 }
 
 group = "org.example"
@@ -29,6 +29,14 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-application {
-    mainClass.set("MainKt")
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.github.robotlovesyou"
+            artifactId = "shaving"
+            version = "0.0.2"
+
+            from(components["java"])
+        }
+    }
 }

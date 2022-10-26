@@ -1,4 +1,4 @@
-package shaving
+package com.github.robotlovesyou.shaving
 
 import kotlin.reflect.KProperty1
 

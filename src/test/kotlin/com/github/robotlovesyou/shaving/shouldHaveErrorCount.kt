@@ -1,4 +1,4 @@
-package shaving
+package com.github.robotlovesyou.shaving
 
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf

@@ -1,4 +1,4 @@
-package shaving
+package com.github.robotlovesyou.shaving
 
 sealed interface ValidationResult
 object Valid : ValidationResult
