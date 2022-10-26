@@ -2,9 +2,7 @@ package com.github.robotlovesyou.shaving
 
 import kotlin.reflect.KProperty1
 
-interface StringValidations<T: Any> {
-    var validations: MutableList<Validation<T>>
-
+interface StringValidations<T: Any>: CollectsValidations<T> {
     fun KProperty1<T, String>.isRequired() {
         validations += { target, state ->
             if (this.get(target).isEmpty()) {

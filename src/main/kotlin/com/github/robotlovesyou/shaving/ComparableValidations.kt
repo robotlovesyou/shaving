@@ -2,8 +2,7 @@ package com.github.robotlovesyou.shaving
 
 import kotlin.reflect.KProperty1
 
-interface ComparableValidations<T> {
-    var validations: MutableList<Validation<T>>
+interface ComparableValidations<T>: CollectsValidations<T> {
     fun <U: Comparable<U>>KProperty1<T, U>.isEqualTo(other: U) {
         validations += {target, state ->
             if (this.get(target) != other) {

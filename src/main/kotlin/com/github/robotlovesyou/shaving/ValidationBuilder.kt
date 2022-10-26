@@ -6,12 +6,11 @@ data class ValidationState(val errors: MutableList<ValidationError> = mutableLis
 typealias Validation<T> = (T, ValidationState) -> Unit
 typealias Validator<T> = (T) -> ValidationResult
 
-class ValidationBuilder<T : Any>: StringValidations<T>, ComparableValidations<T> {
+class ValidationBuilder<T : Any>: StringValidations<T>, ComparableValidations<T>, DateTimeValidations<T> {
     override var validations: MutableList<Validation<T>> = mutableListOf()
     operator fun <U>KProperty1<T, U>.invoke(f: KProperty1<T, U>.() -> Unit) {
         this.f()
     }
-
 
     fun build(): Validator<T> = { target ->
         val state = ValidationState()
